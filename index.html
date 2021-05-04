@@ -54,21 +54,12 @@
                     </div>
                 </div>
                 <div class="chats-section">
-                    <div class="one-chat gray-bg">
+                    <div class="one-chat" v-for="contact in dataList" @click="chatOnClick(contact)">
                         <div class="avatar-container">
-                            <img src="img/avatar_io.jpg" alt="">
+                            <img :src="contact.avatar" alt="">
                         </div>
                         <div class="chat-info">
-                            <h6>Sara</h6>
-                            <p>Non ci sono messaggi</p>
-                        </div>
-                    </div>
-                    <div class="one-chat">
-                        <div class="avatar-container">
-                            <img src="img/avatar_io.jpg" alt="">
-                        </div>
-                        <div class="chat-info">
-                            <h6>Sara</h6>
+                            <h6> {{ contact.name }} </h6>
                             <p>Non ci sono messaggi</p>
                         </div>
                     </div>
@@ -77,10 +68,12 @@
             <section id="right-side">
                 <nav>
                     <div class="avatar-container">
-                        <img src="img/avatar_io.jpg" alt="">
+                        <a href="#">
+                            <img :src="activeChat.avatar" alt="">
+                        </a>
                     </div>
                     <div class="chat-info">
-                        <h6>Sara</h6>
+                        <h6> {{activeChat.name}} </h6>
                         <p>Ultimo accesso oggi alle 18:33</p>
                     </div>
                     <div class="cta-nav">
@@ -96,12 +89,21 @@
                     </div>
                 </nav>
                 <div class="chat-room">
+                    <div class="chat-baloon" v-for="message in activeChat.messages">
+                        <span class="single-message"> 
+                            {{message.text}}
+                        </span>
+                    </div>
 
                 </div>
                 <div class="message-panel">
-                    <i class="far fa-smile"></i>
+                    <a href="#">
+                        <i class="far fa-smile"></i>
+                    </a>
                     <input type="text" placeholder="Type here your message...">
-                    <i class="fas fa-microphone"></i>
+                    <a href="#">
+                        <i class="fas fa-microphone"></i>
+                    </a>
                 </div>
             </section>
         </div>
