@@ -1,7 +1,7 @@
 const dataList = [
     {
-        name: 'Michele',
-        avatar: '_1',
+        name: 'Nezuko',
+        avatar: 'img/Nezuko-Kamado.jpg',
         visible: true,
         messages: [
             {
@@ -22,8 +22,8 @@ const dataList = [
         ],
     },
     {
-        name: 'Fabio',
-        avatar: '_2',
+        name: 'Tanjiro',
+        avatar: 'img/tanjiro-kamado.jpeg',
         visible: true,
         messages: [
             {
@@ -43,8 +43,8 @@ const dataList = [
             }
         ],
     }, {
-        name: 'Samuele',
-        avatar: '_3',
+        name: 'Genya Shinazugawa',
+        avatar: 'img/Genya-Shinazugawa.jpeg',
         visible: true,
         messages: [
             {
@@ -65,8 +65,161 @@ const dataList = [
         ],
     },
     {
-        name: 'Luisa',
-        avatar: '_4',
+        name: 'Giyu Tomioka',
+        avatar: 'img/Giyu-Tomioka.jpeg',
+        visible: true,
+        messages: [
+            {
+                date: '10/01/2020 15:30:55',
+                text: 'Lo sai che ha aperto una nuova pizzeria?',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Si, ma preferirei andare al cinema',
+                status: 'received'
+            }
+        ],
+    },
+    {
+        name: 'Inosuke Hashibira',
+        avatar: 'img/inosuke-hashibira.jpeg',
+        visible: true,
+        messages: [
+            {
+                date: '10/01/2020 15:30:55',
+                text: 'Lo sai che ha aperto una nuova pizzeria?',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Si, ma preferirei andare al cinema',
+                status: 'received'
+            }
+        ],
+    },
+    {
+        name: 'Kanae Kocho',
+        avatar: 'img/Kanae-Kocho.jpeg',
+        visible: true,
+        messages: [
+            {
+                date: '10/01/2020 15:30:55',
+                text: 'Lo sai che ha aperto una nuova pizzeria?',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Si, ma preferirei andare al cinema',
+                status: 'received'
+            }
+        ],
+    },
+    {
+        name: 'Kanao Tsuyuri',
+        avatar: 'img/Kanao-Tsuyuri.jpeg',
+        visible: true,
+        messages: [
+            {
+                date: '10/01/2020 15:30:55',
+                text: 'Lo sai che ha aperto una nuova pizzeria?',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Si, ma preferirei andare al cinema',
+                status: 'received'
+            }
+        ],
+    },
+    {
+        name: 'Mitsuri Kanroji',
+        avatar: 'img/Mitsuri-Kanroji.jpeg',
+        visible: true,
+        messages: [
+            {
+                date: '10/01/2020 15:30:55',
+                text: 'Lo sai che ha aperto una nuova pizzeria?',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Si, ma preferirei andare al cinema',
+                status: 'received'
+            }
+        ],
+    },
+    {
+        name: 'Muzan Kibutsuji',
+        avatar: 'img/Muzan-Kibutsuji.jpeg',
+        visible: true,
+        messages: [
+            {
+                date: '10/01/2020 15:30:55',
+                text: 'Lo sai che ha aperto una nuova pizzeria?',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Si, ma preferirei andare al cinema',
+                status: 'received'
+            }
+        ],
+    },
+    {
+        name: 'Sakonji Urokodaki',
+        avatar: 'img/Sakonji-Urokodaki.png',
+        visible: true,
+        messages: [
+            {
+                date: '10/01/2020 15:30:55',
+                text: 'Lo sai che ha aperto una nuova pizzeria?',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Si, ma preferirei andare al cinema',
+                status: 'received'
+            }
+        ],
+    },
+    {
+        name: 'Shinobu Kocho',
+        avatar: 'img/Shinobu-Kocho.jpeg',
+        visible: true,
+        messages: [
+            {
+                date: '10/01/2020 15:30:55',
+                text: 'Lo sai che ha aperto una nuova pizzeria?',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Si, ma preferirei andare al cinema',
+                status: 'received'
+            }
+        ],
+    },
+    {
+        name: 'Tamayo',
+        avatar: 'img/tamayo.jpeg',
+        visible: true,
+        messages: [
+            {
+                date: '10/01/2020 15:30:55',
+                text: 'Lo sai che ha aperto una nuova pizzeria?',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Si, ma preferirei andare al cinema',
+                status: 'received'
+            }
+        ],
+    },
+    {
+        name: 'Zenitsu Agatsuma',
+        avatar: 'img/Zenitsu-Agatsuma.jpeg',
         visible: true,
         messages: [
             {
