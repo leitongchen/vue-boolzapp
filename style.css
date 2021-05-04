@@ -6,7 +6,7 @@
 
 body {
     background-color: #dadbd5;
-    padding: 60px 0;
+    padding: 40px 0;
 }
 
 .bg-square {
@@ -20,40 +20,63 @@ body {
     z-index: -1;
 }
 
+/* ********************************************************* 
+    IMPOSTAZIONI PIU GENERALI
+********************************************************* */
+
 .container {
-    width: 70%;
-    max-width: 1000px;
+    width: 80%;
+    max-width: 1200px;
     height: 1000px;
-    max-height: 80vh;
+    max-height: 85vh;
 
     margin: auto;
 
-    background-color: #c9c9c9;
+    background-color: #ededed;
+    color: #1f2729;
+    border: 1px solid #b6b6b6;
 
     display: flex;
 
 }
 
-nav {
+section > div,
+section > nav {
+    padding: 0 8px
+}
+
+nav, 
+.message-panel {
     height: 50px;
     width: 100%;
+}
 
-    background-color: cadetblue;
-    border: 1px solid black;
+nav {
+    border-bottom: 1px solid #b6b6b6;
+    flex-shrink: 0;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cta-nav a {
+    margin: 0 5px;
+
+    display: inline-block;
+    padding: 5px;
 }
 
 #left-side {
     min-width: 20%;
-    width: 350px;
-    background-color: pink;
+    width: 500px;
+    
 
     display: flex;
     flex-direction: column;
-}
-
-#left-side > div {
-    padding: 5px;
-    border: 2px solid salmon;
+    flex-shrink: 1;
+    border-right: 2px solid #b6b6b6;
 }
 
 .chats-section {
@@ -63,9 +86,8 @@ nav {
 
 
 #right-side {
-    width: 200px;
+    width: 100%;
     flex-grow: 1;
-    background-color: orange;
 
     display: flex;
     flex-direction: column;
@@ -79,34 +101,157 @@ nav {
     background-repeat: repeat;
 }
 
-.message-panel {
-    height: 50px;
-    width: 100%;
-
-    background-color: cadetblue;
-    border: 1px solid black;
-}
-
 /* ******************************* */
+/* Icone AVATAR */
 .avatar-container {
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
 
+    margin-right: 10px;
 }
 .avatar-container img {
     width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 
-/* ******************************* */
-/* CLASSI COMUNI  */
+/* ********************************************************* 
+    LEFT SIDE
+********************************************************* */
+
+.notifications {
+    background-color: #9ee1fe;
+    color: #808080;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+}
+.notifications .icon {
+    background-color: white;
+    color: #9ee1fe;
+    border-radius: 50%;
+
+    padding: 5px;
+    margin-right: 10px;
+}
+
+/* SEARCH BAR */
+.search-bar {
+    min-height: 40px;
+    background-color: #ededed;
+
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.search-container {
+    height: 95%;
+    background-color: white;
+    border-radius: 20px;
+
+    padding: 0 10px;
+
+    display: flex;
+    align-items: center;
+}
+
+.search-container input {
+    margin-left: 10px;
+    padding: 0 5px;
+}
+
+/* CHATS ALL */
+.chats-section {
+    background-color: white;
+    padding: 0;
+
+    overflow: auto;
+}
+
+.one-chat {
+    height: 60px;
+
+    padding: 0 8px;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid #d7d7d7;
+}
+/* classe bg più scuro per chat selezionata */
+.gray-bg {
+    background-color: #d7d7d7;
+}
+
+
+/* ********************************************************* 
+    RIGHT SIDE
+********************************************************* */
+.chat-info {
+    flex-grow: 1;
+}
+
+.message-panel {
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+}
+
+.message-panel i {
+    font-size: 1rem;
+}
+
+.message-panel input {
+    padding: 0 10px;
+    border-radius: 20px;
+
+    margin: 0 20px;
+}
+
+/* ********************************************************* 
+    CLASSI COMUNI
+********************************************************* */
+
 
 h6 {
-    font-size: .9rem;
+    font-size: .85rem;
+
+    margin-bottom: 5px;
+}
+
+p, a{
+    font-size: .75rem;
 }
 
 p {
+    color: #636363;
+}
+
+i {
     font-size: .85rem;
+}
+
+a {
+    color: #808080;
+}
+a:hover {
+    color: #6b6b6b;
+}
+
+input {
+    width: 100%;
+    height: 80%;
+    border: 0;
+}
+
+input:active,
+input:focus {
+    outline: none;
 }
 
 /* 

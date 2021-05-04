@@ -82,6 +82,3 @@ const dataList = [
         ],
     },
 ];
-
-
-]

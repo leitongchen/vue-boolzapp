@@ -1,6 +1,7 @@
 const app = new Vue({
-    el: "",
+    el: "#app",
     data: {
+        dataList: dataList,
 
     },
     methods: {
