@@ -37,7 +37,6 @@ body {
     border: 1px solid #b6b6b6;
 
     display: flex;
-
 }
 
 section > div,
@@ -96,6 +95,7 @@ nav {
 .chat-room {
     height: 80%;
     flex-grow: 1;
+    overflow: auto;
 
     background-image: url(img/mine.jpg);
     background-repeat: repeat;
@@ -230,14 +230,66 @@ nav {
     padding: 10px;
 
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
 
 .single-message {
-    max-width: 250px;
+    min-width: 20%;
+    max-width: 80%;
     padding: 20px 15px;
+
+    display: inline-block;
+    position: relative;
+}
+
+.received-message,
+.sent-message {
+    position: relative;
+}
+
+.received-message {
     background-color: white;
-    border-radius: 20px;
+    align-self: flex-start;
+
+    border-radius: 0 10px 10px 10px;
+}
+
+.sent-message {
+    background-color: #d5f9ba;
+    align-self: flex-end;
+
+    border-radius: 10px 0 10px 10px;
+}
+
+.sent-message::after,
+.received-message::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+
+    position: absolute;
+}
+.received-message::after {
+    border-color: transparent #ffffff transparent transparent;
+    border-width: 0 12px 10px 0;
+    left: -12px;
+    top: 0;
+}
+.sent-message::after {
+    border-color:  #d5f9ba transparent transparent transparent;
+    border-width: 10px 12px 0 0;
+    right: -12px;
+    top: 0;
+}
+
+.single-message .time {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+
+    font-size: 8px;
+    color: rgb(141, 141, 141);
 }
 /* ********************************************************* 
     CLASSI COMUNI
@@ -250,7 +302,8 @@ h6 {
     margin-bottom: 5px;
 }
 
-p, a{
+p, a,
+.single-message {
     font-size: .75rem;
 }
 
