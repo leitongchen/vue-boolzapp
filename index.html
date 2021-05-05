@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="style.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <title>Boolzapp</title>
 </head>
 <body>
+    <div class="bg-square"></div>
     <main id="app">
-        <div class="bg-square"></div>
 
         <div class="container">
             <section id="left-side">
@@ -50,18 +50,20 @@
                 <div class="search-bar">
                     <div class="search-container">
                         <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Search or start a new chat">
+                        <input type="text" placeholder="Search or start a new chat" v-model="userSearch">
                     </div>
                 </div>
                 <div class="chats-section">
-                    <div class="one-chat" v-for="contact in dataList" @click="chatOnClick(contact)">
+                    <div class="one-chat" v-for="contact in dataList" @click="chatOnClick(contact)" :class="{'gray-bg': selectActiveChat(contact)}">
+
                         <div class="avatar-container">
                             <img :src="contact.avatar" alt="">
                         </div>
                         <div class="chat-info">
                             <h6> {{ contact.name }} </h6>
-                            <p>Non ci sono messaggi</p>
+                            <p>There is no messages.</p>
                         </div>
+
                     </div>
                 </div>
             </section>
@@ -74,7 +76,7 @@
                     </div>
                     <div class="chat-info">
                         <h6> {{activeChat.name}} </h6>
-                        <p>Ultimo accesso oggi alle 18:33</p>
+                        <p>Last seen today at {{userLastAccess}}</p>
                     </div>
                     <div class="cta-nav">
                         <a href="#">
@@ -90,8 +92,9 @@
                 </nav>
                 <div class="chat-room">
                     <div class="chat-baloon" v-for="message in activeChat.messages">
-                        <span class="single-message"> 
+                        <span class="single-message" :class="statusMsg(message)"> 
                             {{message.text}}
+                            <span class="time">{{ obtainTime(message.date) }}</span>
                         </span>
                     </div>
 

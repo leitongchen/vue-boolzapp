@@ -1,5 +1,6 @@
 const dataList = [
     {
+        id: 1,
         name: 'Nezuko',
         avatar: 'img/Nezuko-Kamado.jpg',
         visible: true,
@@ -18,10 +19,66 @@ const dataList = [
                 date: '10/01/2020 16:15:22',
                 text: 'Tutto fatto!',
                 status: 'received'
-            }
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Ricordati di dargli da mangiare',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Ricordati di dargli da mangiare',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Ricordati di dargli da mangiare',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Ricordati di dargli da mangiare',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Ricordati di dargli da mangiare',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Ricordati di dargli da mangiare',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Ricordati di dargli da mangiare',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Ricordati di dargli da mangiare',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Ricordati di dargli da mangiare',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Ricordati di dargli da mangiare',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Ricordati di dargli da mangiare',
+                status: 'sent'
+            },
         ],
     },
     {
+        id: 2,
         name: 'Tanjiro',
         avatar: 'img/tanjiro-kamado.jpeg',
         visible: true,
@@ -43,6 +100,7 @@ const dataList = [
             }
         ],
     }, {
+        id: 3,
         name: 'Genya Shinazugawa',
         avatar: 'img/Genya-Shinazugawa.jpeg',
         visible: true,
@@ -65,6 +123,7 @@ const dataList = [
         ],
     },
     {
+        id: 4,
         name: 'Giyu Tomioka',
         avatar: 'img/Giyu-Tomioka.jpeg',
         visible: true,
@@ -82,6 +141,7 @@ const dataList = [
         ],
     },
     {
+        id: 5,
         name: 'Inosuke Hashibira',
         avatar: 'img/inosuke-hashibira.jpeg',
         visible: true,
@@ -99,6 +159,7 @@ const dataList = [
         ],
     },
     {
+        id: 6,
         name: 'Kanae Kocho',
         avatar: 'img/Kanae-Kocho.jpeg',
         visible: true,
@@ -116,6 +177,7 @@ const dataList = [
         ],
     },
     {
+        id: 7,
         name: 'Kanao Tsuyuri',
         avatar: 'img/Kanao-Tsuyuri.jpeg',
         visible: true,
@@ -133,6 +195,7 @@ const dataList = [
         ],
     },
     {
+        id: 8,
         name: 'Mitsuri Kanroji',
         avatar: 'img/Mitsuri-Kanroji.jpeg',
         visible: true,
@@ -150,6 +213,7 @@ const dataList = [
         ],
     },
     {
+        id: 9,
         name: 'Muzan Kibutsuji',
         avatar: 'img/Muzan-Kibutsuji.jpeg',
         visible: true,
@@ -167,6 +231,7 @@ const dataList = [
         ],
     },
     {
+        id: 10,
         name: 'Sakonji Urokodaki',
         avatar: 'img/Sakonji-Urokodaki.png',
         visible: true,
@@ -184,6 +249,7 @@ const dataList = [
         ],
     },
     {
+        id: 11,
         name: 'Shinobu Kocho',
         avatar: 'img/Shinobu-Kocho.jpeg',
         visible: true,
@@ -201,6 +267,7 @@ const dataList = [
         ],
     },
     {
+        id: 12,
         name: 'Tamayo',
         avatar: 'img/tamayo.jpeg',
         visible: true,
@@ -218,6 +285,7 @@ const dataList = [
         ],
     },
     {
+        id: 13,
         name: 'Zenitsu Agatsuma',
         avatar: 'img/Zenitsu-Agatsuma.jpeg',
         visible: true,
