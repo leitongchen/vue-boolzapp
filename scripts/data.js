@@ -7,17 +7,17 @@ const dataList = [
         messages: [
             {
                 date: '28/03/2020 10:10:40',
-                text: 'La Marianna va in campagna',
+                text: 'I will make you never Forget the Secret Techniques Urokodaki has taught you.',
                 status: 'received'
             },
             {
                 date: '28/03/2020 10:20:10',
-                text: 'Sicuro di non aver sbagliato chat?',
+                text: 'WHAT? Why?',
                 status: 'sent'
             },
             {
                 date: '28/03/2020 16:15:22',
-                text: 'Ah scusa!',
+                text: "Trust me. I will make you never Forget the Secret Techniques Urokodaki has taught you.",
                 status: 'received'
             }
         ],
@@ -27,7 +27,7 @@ const dataList = [
         name: 'Zenitsu Agatsuma',
         avatar: 'img/Zenitsu-Agatsuma.jpeg',
         visible: true,
-        messages: null,
+        messages: [],
     },
     {
         id: 3,
@@ -183,13 +183,21 @@ const dataList = [
         name: 'Shinobu Kocho',
         avatar: 'img/Shinobu-Kocho.jpeg',
         visible: true,
-        messages: null,
+        messages: [],
     },
     {
         id: 12,
         name: 'Tamayo',
         avatar: 'img/tamayo.jpeg',
         visible: true,
-        messages: null,
+        messages: [],
     },
 ];
+
+const aiAnswersList = [
+    "Ok!",
+    "Tutto bene e tu?",
+    "Ciao anche a te",
+    "Bella giornata oggi!",
+    "Buongiorno splendore!",
+]
