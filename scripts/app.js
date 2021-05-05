@@ -7,6 +7,8 @@ const app = new Vue({
         userNewMessageInput: "",
         userNewMessage: {},
 
+        timeNow: null,
+
         userSearch: "",
     },
     computed: {
@@ -20,7 +22,8 @@ const app = new Vue({
             const lastMsgDate = receivedMsg[receivedMsg.length -1].date;
 
             return this.obtainTime(lastMsgDate)
-        }
+        },
+        
 
     },
     methods: {
@@ -58,12 +61,22 @@ const app = new Vue({
             }
             this.userNewMessageInput = "";
             return this.activeChat.messages.push(newMessage);
+        },
+        lastMessageChats(arrayMessages) {
+            if(!arrayMessages) {
+                return `There are no messages.`
+            }
+            const lastMsg = arrayMessages[arrayMessages.length -1];
+            return lastMsg.text;
         }
     },
     mounted() {
         this.activeChat = {
             ...this.dataList[0]
         }
+
+        this.timeNow = moment().format("HH:mm")
+
     }
 
 }); 

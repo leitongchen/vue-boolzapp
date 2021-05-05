@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <title>Boolzapp</title>
 </head>
+
 <body>
     <div class="bg-square"></div>
     <main id="app">
@@ -54,14 +56,20 @@
                     </div>
                 </div>
                 <div class="chats-section">
-                    <div class="one-chat" v-for="contact in dataList" @click="chatOnClick(contact)" :class="{'gray-bg': selectActiveChat(contact)}">
+                    <div class="one-chat" v-for="contact in dataList" @click="chatOnClick(contact)"
+                        :class="{'gray-bg': selectActiveChat(contact)}">
 
                         <div class="avatar-container">
                             <img :src="contact.avatar" alt="">
                         </div>
                         <div class="chat-info">
                             <h6> {{ contact.name }} </h6>
-                            <p>There is no messages.</p>
+                            <!-- <p>{{ lastMessageChats(contact) }}</p> -->
+
+                           <p>
+                                {{ lastMessageChats(contact.messages) }}
+                           </p> 
+
                         </div>
 
                     </div>
@@ -76,7 +84,7 @@
                     </div>
                     <div class="chat-info">
                         <h6> {{activeChat.name}} </h6>
-                        <p>Last seen today at {{userLastAccess}}</p>
+                        <p>Last seen today at {{!activeChat.messages ? timeNow : userLastAccess}}</p>
                     </div>
                     <div class="cta-nav">
                         <a href="#">
@@ -92,7 +100,7 @@
                 </nav>
                 <div class="chat-room">
                     <div class="chat-baloon" v-for="message in activeChat.messages">
-                        <span class="single-message" :class="statusMsg(message)"> 
+                        <span class="single-message" :class="statusMsg(message)">
                             {{message.text}}
                             <span class="time">{{ obtainTime(message.date) }}</span>
                         </span>
@@ -103,7 +111,8 @@
                     <a href="#">
                         <i class="far fa-smile"></i>
                     </a>
-                    <input type="text" placeholder="Type here your message..." v-model="userNewMessageInput" @keyup.enter="addNewUserMessage(userNewMessageInput)">
+                    <input type="text" placeholder="Type here your message..." v-model="userNewMessageInput"
+                        @keyup.enter="addNewUserMessage(userNewMessageInput)">
                     <a href="#">
                         <i class="fas fa-microphone"></i>
                     </a>
@@ -114,4 +123,5 @@
     <script src="scripts/data.js"></script>
     <script src="scripts/app.js"></script>
 </body>
+
 </html>
