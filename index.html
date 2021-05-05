@@ -55,12 +55,12 @@
                 <div class="search-bar">
                     <div class="search-container">
                         <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Search or start a new chat" v-model="userSearch">
+                        <input type="text" placeholder="Search or start a new chat" v-model="userSearch" @keyup.enter="filteredDataList">
                     </div>
                 </div>
                 <!-- SEZ DI TUTTE LE CHAT -->
                 <div class="chats-section">
-                    <div class="one-chat" v-for="contact in dataList" @click="chatOnClick(contact)"
+                    <div class="one-chat" v-for="(contact, index) in filteredDataList" :key="index" @click="chatOnClick(contact)"
                         :class="{'gray-bg': selectActiveChat(contact)}">
 
                         <div class="avatar-container">
@@ -111,7 +111,7 @@
                 </nav>
                 <!-- FINESTRA CHAT -->
                 <div class="chat-room">
-                    <div class="chat-baloon" v-for="message in activeChat.messages">
+                    <div class="chat-baloon" v-for="(message, index) in activeChat.messages" :key="index">
                         <span class="single-message" :class="statusMsg(message)">
                             {{message.text}}
                              <span class="time">{{ obtainTime(message.date) }}</span>

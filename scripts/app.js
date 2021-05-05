@@ -4,6 +4,8 @@ const app = new Vue({
         dataList: dataList,
         activeChat: {},
 
+        // filteredList: [],
+
         userNewMessageInput: "",
         userNewMessage: {},
 
@@ -29,8 +31,20 @@ const app = new Vue({
 
             return this.obtainTime(lastMsgDate)
         },
+        // filtrare i contatti in base alla ricerca
+        filteredDataList() {
+            if (this.userSearch === "") {
+                return this.dataList;
+            } else {
 
-        
+                return this.dataList.filter(element => {
+
+                    let nameLower = element.name.toLowerCase();
+
+                    return nameLower.startsWith(this.userSearch);
+                });
+            }
+        },
 
     },
     methods: {
@@ -87,6 +101,7 @@ const app = new Vue({
         },
        
         // crea nuovo messaggio all'input+enter dell'utente
+        // all'interno settato un timer che dopo 2 secondi stampa una risposta
         addNewUserMessage() {
             if (!this.userNewMessageInput) {
                 return ""
