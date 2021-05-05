@@ -103,7 +103,7 @@
                     <a href="#">
                         <i class="far fa-smile"></i>
                     </a>
-                    <input type="text" placeholder="Type here your message...">
+                    <input type="text" placeholder="Type here your message..." v-model="userNewMessageInput" @keyup.enter="addNewUserMessage(userNewMessageInput)">
                     <a href="#">
                         <i class="fas fa-microphone"></i>
                     </a>

@@ -1,84 +1,6 @@
 const dataList = [
     {
         id: 1,
-        name: 'Nezuko',
-        avatar: 'img/Nezuko-Kamado.jpg',
-        visible: true,
-        messages: [
-            {
-                date: '13/08/2020 15:30:55',
-                text: 'Hai portato a spasso il cane?',
-                status: 'sent'
-            },
-            {
-                date: '10/01/2020 15:50:00',
-                text: 'Ricordati di dargli da mangiare',
-                status: 'sent'
-            },
-            {
-                date: '10/01/2020 16:15:22',
-                text: 'Tutto fatto!',
-                status: 'received'
-            },
-            {
-                date: '10/01/2020 15:50:00',
-                text: 'Ricordati di dargli da mangiare',
-                status: 'sent'
-            },
-            {
-                date: '10/01/2020 15:50:00',
-                text: 'Ricordati di dargli da mangiare',
-                status: 'sent'
-            },
-            {
-                date: '10/01/2020 15:50:00',
-                text: 'Ricordati di dargli da mangiare',
-                status: 'sent'
-            },
-            {
-                date: '10/01/2020 15:50:00',
-                text: 'Ricordati di dargli da mangiare',
-                status: 'sent'
-            },
-            {
-                date: '10/01/2020 15:50:00',
-                text: 'Ricordati di dargli da mangiare',
-                status: 'sent'
-            },
-            {
-                date: '10/01/2020 15:50:00',
-                text: 'Ricordati di dargli da mangiare',
-                status: 'sent'
-            },
-            {
-                date: '10/01/2020 15:50:00',
-                text: 'Ricordati di dargli da mangiare',
-                status: 'sent'
-            },
-            {
-                date: '10/01/2020 15:50:00',
-                text: 'Ricordati di dargli da mangiare',
-                status: 'sent'
-            },
-            {
-                date: '10/01/2020 15:50:00',
-                text: 'Ricordati di dargli da mangiare',
-                status: 'sent'
-            },
-            {
-                date: '10/01/2020 15:50:00',
-                text: 'Ricordati di dargli da mangiare',
-                status: 'sent'
-            },
-            {
-                date: '10/01/2020 15:50:00',
-                text: 'Ricordati di dargli da mangiare',
-                status: 'sent'
-            },
-        ],
-    },
-    {
-        id: 2,
         name: 'Tanjiro',
         avatar: 'img/tanjiro-kamado.jpeg',
         visible: true,
@@ -99,7 +21,26 @@ const dataList = [
                 status: 'sent'
             }
         ],
-    }, {
+    },
+    {
+        id: 2,
+        name: 'Zenitsu Agatsuma',
+        avatar: 'img/Zenitsu-Agatsuma.jpeg',
+        visible: true,
+        messages: [
+            {
+                date: '10/01/2020 15:30:55',
+                text: 'Lo sai che ha aperto una nuova pizzeria?',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 15:50:00',
+                text: 'Si, ma preferirei andare al cinema',
+                status: 'received'
+            }
+        ],
+    },
+    {
         id: 3,
         name: 'Genya Shinazugawa',
         avatar: 'img/Genya-Shinazugawa.jpeg',
@@ -270,24 +211,6 @@ const dataList = [
         id: 12,
         name: 'Tamayo',
         avatar: 'img/tamayo.jpeg',
-        visible: true,
-        messages: [
-            {
-                date: '10/01/2020 15:30:55',
-                text: 'Lo sai che ha aperto una nuova pizzeria?',
-                status: 'sent'
-            },
-            {
-                date: '10/01/2020 15:50:00',
-                text: 'Si, ma preferirei andare al cinema',
-                status: 'received'
-            }
-        ],
-    },
-    {
-        id: 13,
-        name: 'Zenitsu Agatsuma',
-        avatar: 'img/Zenitsu-Agatsuma.jpeg',
         visible: true,
         messages: [
             {

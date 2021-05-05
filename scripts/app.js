@@ -4,9 +4,10 @@ const app = new Vue({
         dataList: dataList,
         activeChat: {},
 
-        userSearch: "",
+        userNewMessageInput: "",
+        userNewMessage: {},
 
-        receivedMsg: null,
+        userSearch: "",
     },
     computed: {
         userLastAccess() {
@@ -36,7 +37,7 @@ const app = new Vue({
             }
         },
         obtainTime(dateString) {
-            const date = moment(dateString, "DD/MM/YYYY hh:mm:ss");
+            const date = moment(dateString, "DD/MM/YYYY HH:mm:ss");
 
             return date.format("HH:mm")
         },
@@ -46,6 +47,18 @@ const app = new Vue({
             }
             return false;
         },
+        addNewUserMessage(userInput) {
+            if (!userInput) {
+                return ""
+            }
+            const newMessage = {
+                date: moment().format("DD/MM/YYYY HH:mm:ss"),
+                text: userInput,
+                status: 'sent'
+            }
+            this.userNewMessageInput = "";
+            return this.activeChat.messages.push(newMessage);
+        }
     },
     mounted() {
         this.activeChat = {
