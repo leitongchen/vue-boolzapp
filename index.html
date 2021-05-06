@@ -60,7 +60,9 @@
                 </div>
                 <!-- SEZ DI TUTTE LE CHAT -->
                 <div class="chats-section">
-                    <div class="one-chat" v-for="(contact, index) in filteredDataList" :key="index" @click="chatOnClick(contact)"
+                    <div class="one-chat" v-for="(contact, index) in filteredDataList" :key="index" 
+                        @click="chatOnClick(contact)"
+                        ref="containerToScroll"
                         :class="{'gray-bg': selectActiveChat(contact)}">
 
                         <div class="avatar-container">
@@ -74,7 +76,7 @@
                                 {{lastMessageChat(contact.messages).text}}
                             </p>
                             
-                             <span class="time">
+                            <span class="time">
                                 {{ lastMessageTime(contact.messages) }}
                             </span> 
 

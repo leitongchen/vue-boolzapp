@@ -200,4 +200,7 @@ const aiAnswersList = [
     "Ciao anche a te",
     "Bella giornata oggi!",
     "Buongiorno splendore!",
+    "Sono contento per te.",
+    "Andiamo a prenderci uno spritz?",
+    "Ci vediamo fra 5 min in piazza."
 ]
