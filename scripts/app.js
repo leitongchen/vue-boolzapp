@@ -59,7 +59,7 @@ const app = new Vue({
             return {
                 received: message.status === "received",
                 sent: message.status === "sent"
-            }
+            };
         },
 
         // trasforma stringa di una data in un dato
@@ -82,11 +82,15 @@ const app = new Vue({
         },
 
         // trova l'ultimo messaggio di una conversazione
-        lastMessageChat(arrayMessages) {
-            if (arrayMessages.length === 0) {
+        lastMessageChat(messages) {
+
+            //const messages = user.messages
+            
+
+            if (messages.length === 0) {
                 return { text: "There are no messages" };
             }
-            const lastMsg = arrayMessages[arrayMessages.length - 1];
+            const lastMsg = messages[messages.length - 1];
             return lastMsg;
         },
 
@@ -131,7 +135,7 @@ const app = new Vue({
                     active: false,
                 };
 
-                currentUser.messages.push(aiResponse)
+                currentUser.messages.push(aiResponse);
                 this.scrollToBottom();
 
             }, 2000);
@@ -149,10 +153,10 @@ const app = new Vue({
 
             this.$nextTick(() => {
                 const elementHtml = this.$refs.containerToScroll;
-    
-                elementHtml.scrollTop = elementHtml.scrollHeight
 
-            })
+                elementHtml.scrollTop = elementHtml.scrollHeight;
+
+            });
         },
 
         onArrowClick(message, event) {
@@ -165,25 +169,28 @@ const app = new Vue({
             // })
             this.$set(message, 'showPopup', true);
             event.currentTarget.focus();
+
         },
 
+
         onFocusLost(message) {
-            this.$set(message, 'showPopup', false)
+            console.log(message)
+            this.$set(message, 'showPopup', false);
         },
-        /*
+        
         onPopupClick(message) {
             message.showPopup = false;
         },
-        */
+        
         deleteMessage(msgIndex) {
             // this.activeChat.messages.splice(index, 1)
-            this.activeChat.messages[msgIndex].text = "You deleted this message"
-            
+            console.log(msgIndex)
+            this.activeChat.messages[msgIndex].text = "You deleted this message";
         },
 
 
 
-        notificationStatus() {
+        notificationStatus() {
             return this.notifications = !this.notifications;
         },
 
@@ -206,7 +213,7 @@ const app = new Vue({
 
         this.timeNow = moment().format("HH:mm");
 
-        
+
         //this.activeChat.messages.forEach(message => message.active = false)
 
     }

@@ -124,11 +124,15 @@
                 </nav>
                 <!-- FINESTRA CHAT -->
                 <div class="chat-room" ref="containerToScroll"> 
-                    <div class="chat-baloon" v-for="(message, index) in activeChat.messages" :key="index">
+                    <div class="chat-baloon" v-for="(message, index) in activeChat.messages" 
+                        :key="index">
                         <div class="single-message" :class="getStatusMsg(message)"
                         tabindex="-1"
                         @click="onArrowClick(message, $event)"
-                        @blur="onFocusLost(message)">
+                        >
+
+                        <!-- @blur="onFocusLost(message)" -->
+
                             {{message.text}}
                             <span class="time">
                                 {{ obtainTime(message.date) }}
@@ -137,21 +141,22 @@
                             </span>
 
                             <a href="#"
-                            class="menu-arrow"
-                           >
+                            class="menu-arrow">
 
                                 <i class="fas fa-chevron-down"></i>
 
                             </a>
                             <div class="menu-block" 
-                            v-if="message.showPopup">
+                            v-if="message.showPopup" 
+                            @click="onPopupClick(message)"
+                            @blur="onFocusLost(message)">
                                 <ul>
                                     <li>
                                         <a href="#">
                                             Message info
                                         </a>
                                     </li>
-                                    <li @click="deleteMessage(index)">
+                                    <li @click.stop="deleteMessage(index)">
                                         <a href="#">
                                             Delete message
                                         </a>
