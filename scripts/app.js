@@ -12,9 +12,11 @@ const app = new Vue({
         timeNow: null,
 
         aiAnswersList: aiAnswersList,
-        aiAnswerString: "",
 
         userSearch: "",
+
+        currentMessageIndex: null,
+        notifications: false,
     },
     computed: {
         // stabilisce l'orario dell'ultimo accesso
@@ -46,19 +48,17 @@ const app = new Vue({
                 });
             }
         },
-
     },
     methods: {
         chatOnClick(selectedContact) {
-            return this.activeChat = selectedContact;
-
+            this.activeChat = selectedContact;
         },
+
         // inserisce classe in html per aspetto grafico
-        statusMsg(message) {
-            if (message.status === 'received') {
-                return "received-message";
-            } else if (message.status === 'sent') {
-                return "sent-message";
+        getStatusMsg(message) {
+            return {
+                received: message.status === "received",
+                sent: message.status === "sent"
             }
         },
 
@@ -73,6 +73,7 @@ const app = new Vue({
 
             return date.format("HH:mm");
         },
+
         // trova chat selezionata usando id
         selectActiveChat(selectedContact) {
             if (selectedContact.id === this.activeChat.id) {
@@ -88,6 +89,7 @@ const app = new Vue({
             const lastMsg = arrayMessages[arrayMessages.length - 1];
             return lastMsg;
         },
+
         // trova l'ORA dell'ultimo messaggio di una conversazione
         lastMessageTime(arrayMessages) {
 
@@ -96,7 +98,6 @@ const app = new Vue({
             if (lastMsg === 0) {
                 return "";
             }
-
             return this.obtainTime(lastMsg.date);
         },
 
@@ -110,7 +111,8 @@ const app = new Vue({
             const newMessage = {
                 date: moment().format("DD/MM/YYYY HH:mm:ss"),
                 text: this.userNewMessageInput,
-                status: 'sent'
+                status: 'sent',
+                active: false,
             };
 
             const currentUser = this.activeChat;
@@ -124,8 +126,9 @@ const app = new Vue({
             setTimeout(() => {
                 const aiResponse = {
                     date: moment().format("DD/MM/YYYY HH:mm:ss"),
-                    text: this.aiAnswer(),
-                    status: 'received'
+                    text: this.aiAnswerGen(),
+                    status: 'received',
+                    active: false,
                 };
 
                 currentUser.messages.push(aiResponse)
@@ -136,43 +139,59 @@ const app = new Vue({
         },
 
         // genera una risposta al messaggio dell'utente
-        aiAnswer() {
+        aiAnswerGen() {
 
-            let elementList = [];
-            this.aiAnswersList.forEach(element => {
-                elementList.push(element);
-            });
-            // numero random per indice array di risposte
-            const randomNum = this.randomNumber(0, elementList.length - 1);
-
-            this.aiAnswerString = elementList[randomNum];
-
-            console.log(this.aiAnswerString);
-            
-            return elementList[randomNum];
+            const randomNum = this.randomNumber(0, this.aiAnswersList.length - 1);
+            return this.aiAnswersList[randomNum];
         },
 
         scrollToBottom() {
-           
+
             this.$nextTick(() => {
                 const elementHtml = this.$refs.containerToScroll;
     
-                elementHtml.scrolltop = elementHtml.scrollHeight
+                elementHtml.scrollTop = elementHtml.scrollHeight
 
             })
         },
 
-        // aggiungere risposta AI nei data dentro activeChat
+        onArrowClick(message, event) {
+            // this.currentMessageIndex = indexOfMessage;
+
+            // this.activeChat.messages.forEach((message, index) => {
+            //     if(index === indexOfMessageClicked) {
+            //         message.active = true;
+            //     }
+            // })
+            this.$set(message, 'showPopup', true);
+            event.currentTarget.focus();
+        },
+
+        onFocusLost(message) {
+            this.$set(message, 'showPopup', false)
+        },
         /*
-        addAiAnswer() {
-            const newMessage = {
-                date: moment().format("DD/MM/YYYY HH:mm:ss"),
-                text: this.aiAnswerString,
-                status: 'received'
-            };
-            return this.activeChat.messages.push(newMessage);
+        onPopupClick(message) {
+            message.showPopup = false;
         },
         */
+        deleteMessage(msgIndex) {
+            // this.activeChat.messages.splice(index, 1)
+            this.activeChat.messages[msgIndex].text = "You deleted this message"
+            
+        },
+
+
+
+        notificationStatus() {
+            return this.notifications = !this.notifications;
+        },
+
+
+
+        clearInput() {
+            this.userSearch = "";
+        },
 
         randomNumber(min, max) {
             const minMax = max - min;
@@ -186,6 +205,10 @@ const app = new Vue({
         };
 
         this.timeNow = moment().format("HH:mm");
+
+        
+        //this.activeChat.messages.forEach(message => message.active = false)
+
     }
 
 }); 

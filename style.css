@@ -135,12 +135,22 @@ nav {
     align-items: center;
 }
 .notifications .icon {
+    width: 30px;
+    height: 30px;
     background-color: white;
     color: #9ee1fe;
     border-radius: 50%;
 
-    padding: 5px;
+    text-align: center;
+    vertical-align: middle;
     margin-right: 10px;
+}
+
+.notifications .icon i {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 30px;
+
 }
 
 /* SEARCH BAR */
@@ -231,7 +241,7 @@ nav {
 }
 
 .message-panel {
-    padding: 0 20px;
+    padding-left: 20px;
     
     flex-shrink: 0;
 
@@ -247,7 +257,15 @@ nav {
     padding: 0 10px;
     border-radius: 20px;
 
-    margin: 0 20px;
+    margin-left: 20px;
+}
+
+.msg-button {
+    display: inline-block;
+    padding: 15px;
+}
+.msg-button.send-btn:hover {
+    color: #7cbbb6;
 }
 
 .chat-room {
@@ -262,6 +280,15 @@ nav {
     flex-direction: column;
 }
 
+.single-message .time {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
+.chat-baloon .fa-check-double {
+    font-size: 5px;
+}
+
 .single-message {
     min-width: 20%;
     max-width: 80%;
@@ -271,27 +298,28 @@ nav {
     position: relative;
 }
 
-.received-message,
-.sent-message {
+/* MESSAGES BALOONS */
+.received,
+.sent {
     position: relative;
 }
 
-.received-message {
+.received {
     background-color: white;
     align-self: flex-start;
 
     border-radius: 0 10px 10px 10px;
 }
 
-.sent-message {
+.sent {
     background-color: #d5f9ba;
     align-self: flex-end;
 
     border-radius: 10px 0 10px 10px;
 }
 
-.sent-message::after,
-.received-message::after {
+.sent::after,
+.received::after {
     content: "";
     width: 0;
     height: 0;
@@ -299,24 +327,89 @@ nav {
 
     position: absolute;
 }
-.received-message::after {
+.received::after {
     border-color: transparent #ffffff transparent transparent;
     border-width: 0 12px 10px 0;
     left: -12px;
     top: 0;
 }
-.sent-message::after {
+.sent::after {
     border-color:  #d5f9ba transparent transparent transparent;
     border-width: 10px 12px 0 0;
     right: -12px;
     top: 0;
 }
 
-.single-message .time {
+
+/* Message menu arrow  */
+.single-message .fa-chevron-down {
     position: absolute;
-    bottom: 5px;
-    right: 5px;
+    top: 5px;
+
+    font-size: 1rem;
 }
+
+.single-message.sent .fa-chevron-down {
+    right: 10px;
+}
+.single-message.received .fa-chevron-down {
+    left: 10px;
+}
+
+.menu-arrow {
+    opacity: 0;
+}
+
+.single-message:hover .menu-arrow {
+    opacity: .7;
+    transition: opacity .5s;
+}
+
+/* MENU A COMPARSA al click della freccia  */
+
+.menu-block {
+    width: 150px;
+    position: absolute;
+    top: 20px;
+    
+    z-index: 10;
+
+    background-color: rgb(243, 243, 243);
+    border-radius: 2px;
+
+    overflow: hidden;
+}
+
+.menu-block ul {
+    list-style: none;
+}
+
+.sent .menu-block {
+    right: 8px;
+}
+
+.received .menu-block {
+    left: 8px;
+}
+
+.active-block {
+    display: block;
+}
+
+.menu-block li:hover {
+    background-color: rgb(223, 223, 223);
+}
+.menu-block li a {
+    text-decoration: none;
+    display: inline-block;
+
+    padding: 10px 20px;
+
+}
+
+
+
+
 
 /* ********************************************************* 
     CLASSI COMUNI
@@ -370,6 +463,25 @@ input:focus {
     color: rgb(141, 141, 141);
 
 }
+
+
+::-webkit-scrollbar {
+width: 8px;
+height: 8px;
+}
+::-webkit-scrollbar-thumb {
+background: linear-gradient(13deg, #c7f8ff 14%,#ffd4fd 64%);
+border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover{
+background: linear-gradient(13deg, #d0d8a2 14%,#f7d0b9 64%);
+}
+::-webkit-scrollbar-track{
+background: #ffffff;
+border-radius: 10px;
+box-shadow: inset 7px 10px 12px #f0f0f0;
+}
+
 
 /* 
 COLORI SFONDO:

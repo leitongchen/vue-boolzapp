@@ -40,14 +40,17 @@
                 </nav>
                 <div class="notifications">
                     <div class="icon">
-                        <i class="fas fa-bell-slash"></i>
+                        <i :class="notifications ? 'fas fa-bell' : 'fas fa-bell-slash'"></i>
                     </div>
                     <div>
-                        <h6>
+                        <h6 v-if="!notifications">
                             Ricevi notifiche di nuovi messaggi
                         </h6>
-                        <a href="#">
-                            Attiva notifiche desktop
+                        <h6 v-else>
+                            Hai attivato la ricezione delle notifiche
+                        </h6>
+                        <a href="#" @click="notificationStatus()">
+                            {{ notifications ? "Disattiva" : "Attiva" }} notifiche desktop
                         </a>
                     </div>
                 </div>
@@ -55,15 +58,24 @@
                 <div class="search-bar">
                     <div class="search-container">
                         <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Search or start a new chat" v-model="userSearch" @keyup.enter="filteredDataList">
+
+                        <input type="text" placeholder="Search or start a new chat" 
+                        v-model="userSearch"
+                        @keyup.enter="filteredDataList">
+
+                        <a href="#">
+                            <i class="fas fa-times" 
+                            v-if="userSearch" 
+                            @click="clearInput()"></i>
+                        </a>
                     </div>
                 </div>
                 <!-- SEZ DI TUTTE LE CHAT -->
                 <div class="chats-section">
-                    <div class="one-chat" v-for="(contact, index) in filteredDataList" :key="index" 
-                        @click="chatOnClick(contact)"
-                        ref="containerToScroll"
-                        :class="{'gray-bg': selectActiveChat(contact)}">
+                    <div class="one-chat" 
+                    v-for="(contact, index) in filteredDataList" :key="index"
+                    @click="chatOnClick(contact)" 
+                    :class="{'gray-bg': selectActiveChat(contact)}">
 
                         <div class="avatar-container">
                             <img :src="contact.avatar" alt="">
@@ -75,17 +87,16 @@
                             <p>
                                 {{lastMessageChat(contact.messages).text}}
                             </p>
-                            
+
                             <span class="time">
                                 {{ lastMessageTime(contact.messages) }}
-                            </span> 
-
+                            </span>
                         </div>
 
                     </div>
                 </div>
             </section>
-             <!-- ----------------------------------------- -->
+            <!-- ----------------------------------------- -->
             <!---------------- SEZ DESTRA ---------------->
             <section id="right-side">
                 <!-- NAV SOPRA -->
@@ -112,16 +123,43 @@
                     </div>
                 </nav>
                 <!-- FINESTRA CHAT -->
-                <div class="chat-room">
+                <div class="chat-room" ref="containerToScroll"> 
                     <div class="chat-baloon" v-for="(message, index) in activeChat.messages" :key="index">
-                        <span class="single-message" :class="statusMsg(message)">
+                        <div class="single-message" :class="getStatusMsg(message)"
+                        tabindex="-1"
+                        @click="onArrowClick(message, $event)"
+                        @blur="onFocusLost(message)">
                             {{message.text}}
-                             <span class="time">{{ obtainTime(message.date) }}</span>
-                        </span>
+                            <span class="time">
+                                {{ obtainTime(message.date) }}
+                                <i class="fas fa-check-double"
+                                v-if="message.status === 'sent'"></i>
+                            </span>
+
+                            <a href="#"
+                            class="menu-arrow"
+                           >
+
+                                <i class="fas fa-chevron-down"></i>
+
+                            </a>
+                            <div class="menu-block" 
+                            v-if="message.showPopup">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            Message info
+                                        </a>
+                                    </li>
+                                    <li @click="deleteMessage(index)">
+                                        <a href="#">
+                                            Delete message
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <!-- Risposta all'utente -->
-                    
 
                 </div>
                 <!-- PANNELLO INVIO MESSAGGI -->
@@ -129,9 +167,17 @@
                     <a href="#">
                         <i class="far fa-smile"></i>
                     </a>
+
                     <input type="text" placeholder="Type here your message..." v-model="userNewMessageInput"
-                        @keyup.enter="addNewUserMessage()">
-                    <a href="#">
+                    @keyup.enter="addNewUserMessage()">
+
+                    <a href="#" class="msg-button send-btn" 
+                    v-if="userNewMessageInput" 
+                    @click="addNewUserMessage()">
+                        <i class="fas fa-paper-plane"></i>
+                    </a>
+                    
+                    <a href="#" class="msg-button" v-else>
                         <i class="fas fa-microphone"></i>
                     </a>
                 </div>

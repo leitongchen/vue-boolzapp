@@ -8,17 +8,18 @@ const dataList = [
             {
                 date: '28/03/2020 10:10:40',
                 text: 'I will make you never Forget the Secret Techniques Urokodaki has taught you.',
-                status: 'received'
+                status: 'received',
             },
             {
                 date: '28/03/2020 10:20:10',
                 text: 'WHAT? Why?',
-                status: 'sent'
+                status: 'sent',
+
             },
             {
                 date: '28/03/2020 16:15:22',
                 text: "Trust me. I will make you never Forget the Secret Techniques Urokodaki has taught you.",
-                status: 'received'
+                status: 'received',
             }
         ],
     },
@@ -38,17 +39,17 @@ const dataList = [
             {
                 date: '28/03/2020 10:10:40',
                 text: 'La Marianna va in campagna',
-                status: 'received'
+                status: 'received',
             },
             {
                 date: '28/03/2020 10:20:10',
                 text: 'Sicuro di non aver sbagliato chat?',
-                status: 'sent'
+                status: 'sent',
             },
             {
                 date: '28/03/2020 16:15:22',
                 text: 'Ah scusa!',
-                status: 'received'
+                status: 'received',
             }
         ],
     },
@@ -61,12 +62,12 @@ const dataList = [
             {
                 date: '10/01/2020 15:30:55',
                 text: 'Lo sai che ha aperto una nuova pizzeria?',
-                status: 'sent'
+                status: 'sent',
             },
             {
                 date: '10/01/2020 15:50:00',
                 text: 'Si, ma preferirei andare al cinema',
-                status: 'received'
+                status: 'received',
             }
         ],
     },
@@ -79,12 +80,12 @@ const dataList = [
             {
                 date: '10/01/2020 15:30:55',
                 text: 'Lo sai che ha aperto una nuova pizzeria?',
-                status: 'sent'
+                status: 'sent',
             },
             {
                 date: '10/01/2020 15:50:00',
                 text: 'Si, ma preferirei andare al cinema',
-                status: 'received'
+                status: 'received',
             }
         ],
     },
@@ -97,12 +98,12 @@ const dataList = [
             {
                 date: '10/01/2020 15:30:55',
                 text: 'Lo sai che ha aperto una nuova pizzeria?',
-                status: 'sent'
+                status: 'sent',
             },
             {
                 date: '10/01/2020 15:50:00',
                 text: 'Si, ma preferirei andare al cinema',
-                status: 'received'
+                status: 'received',
             }
         ],
     },
@@ -115,12 +116,12 @@ const dataList = [
             {
                 date: '10/01/2020 15:30:55',
                 text: 'Lo sai che ha aperto una nuova pizzeria?',
-                status: 'sent'
+                status: 'sent',
             },
             {
                 date: '10/01/2020 15:50:00',
                 text: 'Si, ma preferirei andare al cinema',
-                status: 'received'
+                status: 'received',
             }
         ],
     },
@@ -133,12 +134,12 @@ const dataList = [
             {
                 date: '10/01/2020 15:30:55',
                 text: 'Lo sai che ha aperto una nuova pizzeria?',
-                status: 'sent'
+                status: 'sent',
             },
             {
                 date: '10/01/2020 15:50:00',
                 text: 'Si, ma preferirei andare al cinema',
-                status: 'received'
+                status: 'received',
             }
         ],
     },
@@ -151,12 +152,12 @@ const dataList = [
             {
                 date: '10/01/2020 15:30:55',
                 text: 'Lo sai che ha aperto una nuova pizzeria?',
-                status: 'sent'
+                status: 'sent',
             },
             {
                 date: '10/01/2020 15:50:00',
                 text: 'Si, ma preferirei andare al cinema',
-                status: 'received'
+                status: 'received',
             }
         ],
     },
@@ -169,12 +170,12 @@ const dataList = [
             {
                 date: '10/01/2020 15:30:55',
                 text: 'Lo sai che ha aperto una nuova pizzeria?',
-                status: 'sent'
+                status: 'sent',
             },
             {
                 date: '10/01/2020 15:50:00',
                 text: 'Si, ma preferirei andare al cinema',
-                status: 'received'
+                status: 'received',
             }
         ],
     },
@@ -196,11 +197,9 @@ const dataList = [
 
 const aiAnswersList = [
     "Ok!",
-    "Tutto bene e tu?",
-    "Ciao anche a te",
-    "Bella giornata oggi!",
-    "Buongiorno splendore!",
-    "Sono contento per te.",
-    "Andiamo a prenderci uno spritz?",
-    "Ci vediamo fra 5 min in piazza."
+    "Ciao anche a te!",
+    "Tutto bene, tu come stai?",
+    "Torno a casa per le vacanze estive.",
+    "In famiglia tutto bene?",
+    "Salutami tutti.",
 ]
