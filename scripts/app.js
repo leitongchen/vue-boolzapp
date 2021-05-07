@@ -84,11 +84,11 @@ const app = new Vue({
         // trova l'ultimo messaggio di una conversazione
         lastMessageChat(messages) {
 
-            //const messages = user.messages
+            //const messages = contact.messages
             
-
-            if (messages.length === 0) {
-                return { text: "There are no messages" };
+            console.log(messages)
+            if (messages === undefined || messages.length === 0) {
+                return {text: "There are no messages"};
             }
             const lastMsg = messages[messages.length - 1];
             return lastMsg;
@@ -167,9 +167,9 @@ const app = new Vue({
             //         message.active = true;
             //     }
             // })
+
             this.$set(message, 'showPopup', true);
             event.currentTarget.focus();
-
         },
 
 

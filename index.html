@@ -127,9 +127,8 @@
                     <div class="chat-baloon" v-for="(message, index) in activeChat.messages" 
                         :key="index">
                         <div class="single-message" :class="getStatusMsg(message)"
-                        tabindex="-1"
-                        @click="onArrowClick(message, $event)"
-                        >
+                        tabindex="0"
+                        @click="onArrowClick(message, $event)">
 
                         <!-- @blur="onFocusLost(message)" -->
 
@@ -148,21 +147,26 @@
                             </a>
                             <div class="menu-block" 
                             v-if="message.showPopup" 
-                            @click="onPopupClick(message)"
-                            @blur="onFocusLost(message)">
+                            @click.stop="onPopupClick(message)">
                                 <ul>
                                     <li>
                                         <a href="#">
                                             Message info
                                         </a>
                                     </li>
-                                    <li @click.stop="deleteMessage(index)">
+                                    <li @click="deleteMessage(index)">
                                         <a href="#">
                                             Delete message
                                         </a>
                                     </li>
                                 </ul>
+                                <a href="#" 
+                                class="close-popup"
+                                @click="onFocusLost(message)">
+                                    <i class="fas fa-times"></i>
+                                </a>
                             </div>
+                            
                         </div>
                     </div>
 

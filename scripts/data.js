@@ -29,11 +29,11 @@ const dataList = [
         avatar: 'img/Zenitsu-Agatsuma.jpeg',
         visible: true,
         messages: [
-            {
-                date: '28/03/2020 16:15:22',
-                text: "If you can only do one thing, hone it to perfection. Hone it to the utmost limit!",
-                status: 'received',
-            }
+            // {
+            //     date: '28/03/2020 16:15:22',
+            //     text: "If you can only do one thing, hone it to perfection. Hone it to the utmost limit!",
+            //     status: 'received',
+            // }
         ],
     },
     {
