@@ -73,7 +73,7 @@
                 <!-- SEZ DI TUTTE LE CHAT -->
                 <div class="chats-section">
                     <div class="one-chat" 
-                    v-for="(contact, index) in filteredDataList" :key="index"
+                    v-for="(contact, index) in sortByDate(filteredDataList)" :key="index"
                     @click="chatOnClick(contact)" 
                     :class="{'gray-bg': selectActiveChat(contact)}">
 
@@ -85,11 +85,11 @@
                             <h6> {{ contact.name }} </h6>
 
                             <p>
-                                {{lastMessageChat(contact.messages).text}}
+                                {{lastMessageChat(contact).text}}
                             </p>
 
                             <span class="time">
-                                {{ lastMessageTime(contact.messages) }}
+                                {{ lastMessageTime(contact.messages, contact) }}
                             </span>
                         </div>
 
@@ -108,7 +108,8 @@
                     </div>
                     <div class="chat-info-nav">
                         <h6> {{activeChat.name}} </h6>
-                        <p>Last seen today at {{ userLastAccess }}</p>
+
+                        <p>Last seen today at {{ userLastAccess }} </p>
                     </div>
                     <div class="cta-nav">
                         <a href="#">
@@ -128,7 +129,8 @@
                         :key="index">
                         <div class="single-message" :class="getStatusMsg(message)"
                         tabindex="0"
-                        @click="onArrowClick(message, $event)">
+                        @click="onArrowClick(message, $event)"
+                        @blur="onFocusLost(message, $event)">
 
                         <!-- @blur="onFocusLost(message)" -->
 
@@ -150,21 +152,17 @@
                             @click.stop="onPopupClick(message)">
                                 <ul>
                                     <li>
-                                        <a href="#">
-                                            Message info
-                                        </a>
+                                        Message info 
                                     </li>
                                     <li @click="deleteMessage(index)">
-                                        <a href="#">
-                                            Delete message
-                                        </a>
+                                        Delete message 
                                     </li>
                                 </ul>
-                                <a href="#" 
+                                <!-- <a href="#" 
                                 class="close-popup"
-                                @click="onFocusLost(message)">
+                                @click="onFocusLost(message, $event)">
                                     <i class="fas fa-times"></i>
-                                </a>
+                                </a> -->
                             </div>
                             
                         </div>

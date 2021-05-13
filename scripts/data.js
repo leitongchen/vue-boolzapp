@@ -16,7 +16,7 @@ const dataList = [
                 status: 'received',
             },
             {
-                date: '28/03/2021 10:15:10',
+                date: '07/05/2021 19:20:10',
                 text: "Something happened?",
                 status: 'sent',
 
@@ -29,11 +29,11 @@ const dataList = [
         avatar: 'img/Zenitsu-Agatsuma.jpeg',
         visible: true,
         messages: [
-            // {
-            //     date: '28/03/2020 16:15:22',
-            //     text: "If you can only do one thing, hone it to perfection. Hone it to the utmost limit!",
-            //     status: 'received',
-            // }
+            {
+                date: '28/03/2020 16:15:22',
+                text: "If you can only do one thing, hone it to perfection. Hone it to the utmost limit!",
+                status: 'received',
+            }
         ],
     },
     {
@@ -105,6 +105,11 @@ const dataList = [
                 date: '31/01/2021 09:30:35',
                 text: "Morning Kanao!",
                 status: 'sent',
+            },
+            {
+                date: '31/01/2021 09:30:35',
+                text: "Morning Kanao!",
+                status: 'received',
             },
             {
                 date: '31/01/2021 13:49:22',
@@ -196,10 +201,10 @@ const dataList = [
 ];
 
 const aiAnswersList = [
-    "Ok!",
-    "Ciao anche a te!",
-    "Tutto bene, tu come stai?",
-    "Torno a casa per le vacanze estive.",
-    "In famiglia tutto bene?",
-    "Salutami tutti.",
+    "Okay!",
+    "Hi there!",
+    "I'm fine, thanks.",
+    "I'm waiting for the Master",
+    "That's great!",
+    "See you soon.",
 ]

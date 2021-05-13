@@ -17,9 +17,12 @@ const app = new Vue({
 
         currentMessageIndex: null,
         notifications: false,
+
+        activeChatLastAccess: "",
     },
     computed: {
         // stabilisce l'orario dell'ultimo accesso
+        
         userLastAccess() {
             if (this.activeChat.messages === undefined) {
                 return this.timeNow;
@@ -32,24 +35,55 @@ const app = new Vue({
             }
             const lastMsgDate = receivedMsg[receivedMsg.length - 1].date;
 
+            /*
+            const userAccessDate = moment(lastMsgDate, "DD/MM/YYYY HH:mm:ss"); 
+
+            return {
+                thisDay: moment().calendar(userAccessDate, {
+                    sameDay: '[today]',
+                    nextDay: '[tomorrow]',
+                    nextWeek: 'dddd',
+                    lastDay: '[yesterday]',
+                    lastWeek: '[last] dddd',
+                    sameElse: 'DD/MM/YYYY'
+                }),
+                atTime: userAccessDate.format("HH:mm")
+            }
+            */
             return this.obtainTime(lastMsgDate);
         },
+
         // filtrare i contatti in base alla ricerca userSearch
         filteredDataList() {
-            if (this.userSearch === "") {
-                return this.dataList;
-            } else {
+            const filteredData = this.dataList.filter((element) => {
+                return element.name.toLowerCase().startsWith(this.userSearch.toLowerCase());
 
-                return this.dataList.filter(element => {
+            });
 
-                    let nameLower = element.name.toLowerCase();
-
-                    return nameLower.startsWith(this.userSearch.toLowerCase());
-                });
-            }
+            return filteredData;
         },
     },
     methods: {
+        sortByDate(list) {
+            list.sort((userA, userB) => {
+                const dateA = moment(userA.lastMsgDate, "DD/MM/YYYY HH:mm:ss");
+                const dateB = moment(userB.lastMsgDate, "DD/MM/YYYY HH:mm:ss");
+
+                if (dateA.isBefore(dateB)) {
+                    return 1;
+                } else if (dateA.isAfter(dateB)) {
+                    return -1;
+                }
+                return 0;
+            });
+
+            // list.forEach(el => {
+            //     console.log(el.lastMsgDate)
+            // })
+
+            return list;
+        },
+
         chatOnClick(selectedContact) {
             this.activeChat = selectedContact;
         },
@@ -82,22 +116,27 @@ const app = new Vue({
         },
 
         // trova l'ultimo messaggio di una conversazione
-        lastMessageChat(messages) {
+        lastMessageChat(contact) {
 
-            //const messages = contact.messages
-            
-            console.log(messages)
+            const messages = contact.messages;
+
+
             if (messages === undefined || messages.length === 0) {
-                return {text: "There are no messages"};
+                return { text: "There are no messages" };
             }
             const lastMsg = messages[messages.length - 1];
+
+            this.$set(contact, "lastMsgDate", lastMsg.date);
+            //console.log("last msg txt" + lastMsg.text)
+
             return lastMsg;
         },
 
         // trova l'ORA dell'ultimo messaggio di una conversazione
-        lastMessageTime(arrayMessages) {
+        lastMessageTime(arrayMessages, contact) {
 
-            const lastMsg = this.lastMessageChat(arrayMessages);
+            const lastMsg = this.lastMessageChat(contact);
+
 
             if (lastMsg === 0) {
                 return "";
@@ -172,23 +211,24 @@ const app = new Vue({
             event.currentTarget.focus();
         },
 
+        onFocusLost(message, event) {
 
-        onFocusLost(message) {
             console.log(message)
             this.$set(message, 'showPopup', false);
-        },
+            // if (!event.relatedTarget) {
+            // }
         
+        },
+
         onPopupClick(message) {
             message.showPopup = false;
         },
-        
+
         deleteMessage(msgIndex) {
             // this.activeChat.messages.splice(index, 1)
             console.log(msgIndex)
             this.activeChat.messages[msgIndex].text = "You deleted this message";
         },
-
-
 
         notificationStatus() {
             return this.notifications = !this.notifications;
@@ -212,9 +252,6 @@ const app = new Vue({
         };
 
         this.timeNow = moment().format("HH:mm");
-
-
-        //this.activeChat.messages.forEach(message => message.active = false)
 
     }
 
