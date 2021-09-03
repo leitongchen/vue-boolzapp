@@ -22,7 +22,6 @@ const app = new Vue({
     },
     computed: {
         // stabilisce l'orario dell'ultimo accesso
-        
         userLastAccess() {
             if (this.activeChat.messages === undefined) {
                 return this.timeNow;
@@ -35,21 +34,6 @@ const app = new Vue({
             }
             const lastMsgDate = receivedMsg[receivedMsg.length - 1].date;
 
-            /*
-            const userAccessDate = moment(lastMsgDate, "DD/MM/YYYY HH:mm:ss"); 
-
-            return {
-                thisDay: moment().calendar(userAccessDate, {
-                    sameDay: '[today]',
-                    nextDay: '[tomorrow]',
-                    nextWeek: 'dddd',
-                    lastDay: '[yesterday]',
-                    lastWeek: '[last] dddd',
-                    sameElse: 'DD/MM/YYYY'
-                }),
-                atTime: userAccessDate.format("HH:mm")
-            }
-            */
             return this.obtainTime(lastMsgDate);
         },
 
@@ -110,9 +94,7 @@ const app = new Vue({
 
         // trova chat selezionata usando id
         selectActiveChat(selectedContact) {
-            if (selectedContact.id === this.activeChat.id) {
-                return true;
-            }
+            return (selectedContact.id === this.activeChat.id) 
         },
 
         // trova l'ultimo messaggio di una conversazione
@@ -120,14 +102,12 @@ const app = new Vue({
 
             const messages = contact.messages;
 
-
             if (messages === undefined || messages.length === 0) {
                 return { text: "There are no messages" };
             }
             const lastMsg = messages[messages.length - 1];
 
             this.$set(contact, "lastMsgDate", lastMsg.date);
-            //console.log("last msg txt" + lastMsg.text)
 
             return lastMsg;
         },
@@ -198,19 +178,17 @@ const app = new Vue({
             });
         },
 
+        // Al click sul baloon del messaggio viene settato valore "true" alla proprietà showPopup di ciascun messaggio
+        // l'elemento target prende focus
+        // viene mostrato il menu popup
         onArrowClick(message, event) {
-            // this.currentMessageIndex = indexOfMessage;
-
-            // this.activeChat.messages.forEach((message, index) => {
-            //     if(index === indexOfMessageClicked) {
-            //         message.active = true;
-            //     }
-            // })
 
             this.$set(message, 'showPopup', true);
             event.currentTarget.focus();
         },
 
+        // l'elemento perde il focus, 
+        // viene nascosto il menu popup del baloon msg relativo
         onFocusLost(message, event) {
 
             console.log(message)
@@ -220,6 +198,7 @@ const app = new Vue({
         
         },
 
+        // al click su una voce viene nascosto il menu popup 
         onPopupClick(message) {
             message.showPopup = false;
         },
@@ -233,7 +212,6 @@ const app = new Vue({
         notificationStatus() {
             return this.notifications = !this.notifications;
         },
-
 
 
         clearInput() {
